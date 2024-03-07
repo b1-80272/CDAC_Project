@@ -1,0 +1,102 @@
+/* static/styles/style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #b9b9b9;
+    color: #333;
+    margin: 0;
+}
+div.container{
+    font-weight:bold;
+}
+.nav_test{
+    color: white;
+}
+header {
+    background-color: rgb(58,70,100);
+    color: whitesmoke;
+    padding: 10px;
+    margin: 10px;
+    width: 95%;
+    margin-left: 2.5%;
+    text-align: center;
+}
+
+nav{
+    text-align: left;
+    margin-left: 10px;
+    background-color: rgb(58,70,100);
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+
+nav,ul,li{
+    list-style-type:none;
+    display: inline;
+    padding-left: 10px;
+    margin-right: 10px;
+    font-size: large;
+}
+
+
+nav,ul,li,a{
+    font-size: 22px;
+    text-decoration: none;
+    color: rgb(247, 243, 242);
+    padding: 10px;
+    display: inline;
+}
+nav,ul,li,a:hover{
+    color: red;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form{
+    background-color: rgb(58,70,100);
+    padding: 10px;
+    line-height: 40px;
+    color: white;
+}
+
+p {
+    line-height: 1.6;
+}
+
+
+label{
+    font-size: medium;
+}
+select{
+    font-size: 10px;
+}
+.btn
+{
+    align-items: center;
+}
+button{
+    background-color: aliceblue;
+    font-size: medium;
+    text-align: center;
+    align-items: center;
+
+}
+
+footer{
+
+    padding: 10px;
+    margin: 10px;
+}
+footer,p{
+    text-align: center;
+    font-size: medium;
+
+}

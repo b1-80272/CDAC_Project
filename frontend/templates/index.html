@@ -1,0 +1,361 @@
+<!--<html>-->
+<!--    <head>-->
+<!--        <meta charset="utf-8">-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+<!--        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">-->
+<!--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+<!--        <style>-->
+<!--        select {-->
+<!--            margin-bottom: 10px;-->
+<!--            }-->
+<!--    </style>-->
+<!--    </head>-->
+
+<!--    <body>-->
+
+<!--&lt;!&ndash;    Header file&ndash;&gt;-->
+<!--    <header>-->
+<!--        <h1 align="center">Rent Prediction System</h1>-->
+<!--        <hr>-->
+<!--        <br>-->
+<!--    </header>-->
+
+<!--&lt;!&ndash;    Navigation bar&ndash;&gt;-->
+<!--    <div>-->
+<!--        <nav>-->
+<!--        <a href="https://public.tableau.com/app/profile/sanket.vaidya4437/viz/HouseRentPredictionProject/PropertyCitywiseprices?publish=yes">Result Visualization</a>-->
+<!--    </nav>-->
+<!--    </div>-->
+
+<!--&lt;!&ndash;    Form element&ndash;&gt;-->
+<!--    <div class="container">-->
+<!--        <form method="POST"-->
+<!--              action="/classify">-->
+
+<!--            <div class="row">-->
+
+<!--                <div class="col">-->
+<!--                    <div>-->
+<!--                        <label>Seller Type?:</label>-->
+<!--                        <select name="seller_type" class="form-control">-->
+<!--                            <option value="0">OWNER</option>-->
+<!--                            <option value="1">AGENT</option>-->
+<!--                            <option value="2">BUILDER</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col">-->
+<!--                     <div>-->
+<!--                        <label>Bedroom:</label>-->
+<!--                        <select name="Bedroom" class="form-control">-->
+<!--                            <option value="0">1</option>-->
+<!--                            <option value="1">2</option>-->
+<!--                            <option value="2">3</option>-->
+<!--                            <option value="3">4</option>-->
+<!--                            <option value="4">5</option>-->
+<!--                            <option value="5">6</option>-->
+<!--                            <option value="6">7</option>-->
+<!--                            <option value="7">8</option>-->
+<!--                            <option value="8">9</option>-->
+<!--                            <option value="9">10</option>-->
+<!--                            <option value="10">11</option>-->
+<!--                            <option value="11">12</option>-->
+<!--                            <option value="12">14</option>-->
+<!--                            <option value="13">15</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col">-->
+<!--                    <div>-->
+<!--                        <label>Layout Type:</label>-->
+<!--                        <select name="layout_type" class="form-control">-->
+<!--                            <option value="1">BHK</option>-->
+<!--                            <option value="0">RK</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--            </div>-->
+
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div>-->
+<!--                        <label>Property Type:</label>-->
+<!--                        <select name="property_type" class="form-control">-->
+<!--                            <option value="0">Apartment</option>-->
+<!--                            <option value="1">Independent Floor</option>-->
+<!--                            <option value="1">Independent House</option>-->
+<!--                            <option value="1">Penthouse</option>-->
+<!--                            <option value="1">Studio Apartment</option>-->
+<!--                            <option value="1">Villa</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--&lt;!&ndash;                <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label>Locality:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <select name="locality" class="form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <option value="1">Bodakdev</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <option value="0">CG Road</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </select>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+
+<!--                <div class="col">-->
+<!--                    <div>-->
+<!--                        <label>Furnish Type:</label>-->
+<!--                        <select name="furnish_type" class="form-control">-->
+<!--                            <option value="1">Semi-Furnished</option>-->
+<!--                            <option value="0">Furnished </option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <label>Area:</label>-->
+<!--                    <input name="area" type="number" class="form-control">-->
+<!--                    <div>-->
+
+<!--                        <label>Bathroom:</label>-->
+<!--                        <select name="bathroom" class="form-control">-->
+<!--                            <option value="1">1</option>-->
+<!--                            <option value="0">2 </option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col">-->
+<!--                     <label for="dropdown">Select Value:</label>-->
+<!--                    <select id="dropdown" class="form-control">-->
+<!--                {% for value in dropdown_values %}-->
+<!--                <option value="{{ value }}">{{ value }}</option>-->
+<!--                {% endfor %}-->
+<!--        </select>-->
+<!--                </div>-->
+
+<!--                <div class="col">-->
+<!--                    <div>-->
+<!--                        <label>City:</label>-->
+<!--                        <select name="city" class="form-control">-->
+<!--                            <option value="0">Mumbai</option>-->
+<!--                            <option value="1">Delhi</option>-->
+<!--                            <option value="2">Banglore</option>-->
+<!--                            <option value="3">Pune</option>-->
+<!--                            <option value="4">Ahmedabad</option>-->
+<!--                            <option value="5">Hyderabad</option>-->
+<!--                            <option value="6">Kolkata</option>-->
+<!--                            <option value="7">Chennai</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--            <button class="btn btn-success">Predict</button>-->
+<!--            </div>-->
+<!--        </form>-->
+
+<!--&lt;!&ndash;        footer &ndash;&gt;-->
+<!--        <footer>-->
+<!--            <h4>This project belongs to Sunbeam Technologies</h4>-->
+<!--        </footer>-->
+
+<!--    </div>-->
+<!--    </body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Dropdown from CSV</title>-->
+<!--    <style>-->
+<!--        select {-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div>-->
+
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+<!--    Header file-->
+    <header>
+        <h1 >Rent Prediction System</h1>
+    </header>
+
+
+
+<!--    Navigation bar-->
+    <nav>
+        <ul>
+          <li><a href="index.html" class="nav_test">Home</a></li>
+          <li><a href="https://public.tableau.com/app/profile/sanket.vaidya4437/viz/HouseRentPredictionProject/Dashboard1?publish=yes" class="nav_test">Data Interpretation</a></li>
+<!--          <li><a href="#" class="nav_test">About Us</a></li>-->
+        </ul>
+      </div>
+    </nav>
+
+
+
+
+<!--    Form element-->
+    <div class="container">
+        <form method="POST"
+              action="/classify">
+                <div class="col">
+                    <div>
+                        <label>Seller Type?:</label>
+                        <select name="seller_type" class="form-control">
+                            <option value="0">OWNER</option>
+                            <option value="1">AGENT</option>
+                            <option value="2">BUILDER</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col">
+                     <div>
+                        <label>Bedroom:</label>
+                        <select name="Bedroom" class="form-control">
+                            <option value="0">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="3">4</option>
+                            <option value="4">5</option>
+                            <option value="5">6</option>
+                            <option value="6">7</option>
+                            <option value="7">8</option>
+                            <option value="8">9</option>
+                            <option value="9">10</option>
+                            <option value="10">11</option>
+                            <option value="11">12</option>
+                            <option value="12">14</option>
+                            <option value="13">15</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div>
+                        <label>Layout Type:</label>
+                        <select name="layout_type" class="form-control">
+                            <option value="1">BHK</option>
+                            <option value="0">RK</option>
+                        </select>
+                    </div>
+
+
+
+                <div class="col">
+                    <div>
+                        <label>Property Type:</label>
+                        <select name="property_type" class="form-control">
+                            <option value="0">Apartment</option>
+                            <option value="1">Independent Floor</option>
+                            <option value="1">Independent House</option>
+                            <option value="1">Penthouse</option>
+                            <option value="1">Studio Apartment</option>
+                            <option value="1">Villa</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div>
+                        <label>Furnish Type:</label>
+                        <select name="furnish_type" class="form-control">
+                            <option value="1">Semi-Furnished</option>
+                            <option value="0">Furnished </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="col">
+                    <label>Area:</label>
+                    <input name="area" type="number" class="form-control">
+                    <div>
+
+                        <label>Bathroom:</label>
+                        <select name="bathroom" class="form-control">
+                            <option value="1">1</option>
+                            <option value="0">2 </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col">
+                     <label for="dropdown">Select Value:</label>
+                    <select id="dropdown" class="form-control">
+                {% for value in dropdown_values %}
+                <option value="{{ value }}">{{ value }}</option>
+                {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col">
+                    <div>
+                        <label>City:</label>
+                        <select name="city" class="form-control">
+                            <option value="0">Mumbai</option>
+                            <option value="1">Delhi</option>
+                            <option value="2">Banglore</option>
+                            <option value="3">Pune</option>
+                            <option value="4">Ahmedabad</option>
+                            <option value="5">Hyderabad</option>
+                            <option value="6">Kolkata</option>
+                            <option value="7">Chennai</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="center-block">Predict</button>
+            </div>
+        </form>
+
+<!--        footer -->
+        <footer>
+            <p>This project is made for Sunbeam Technologies</p>
+        </footer>
+
+    </div>
+    </body>
+</html>
